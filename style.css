@@ -38,9 +38,6 @@ body {
 .parallax_title {
     color: #c6bebe;
     text-transform: uppercase;
-    font-size: 2.5em;
-    margin-top: 20px;
-    font-weight: 600;
 }
 
 .parallax_title::after {
@@ -110,37 +107,32 @@ body {
     pointer-events: none;
 }
 
-.content_text p:last-child{
-    margin-bottom: 0;
-    border-bottom: 1px solid #1d1d2a;
-}
-
-@media (max-width:1024px){
+@media (min-width:320px){
     ._container {
-        max-width: 62.5rem;
-        padding: 1.25rem;
+        max-width: 20rem;
+        padding: 0.625rem;
     }
 
     .parallax_title {
-        font-size: 3.45em;
+        font-size: 1.55em;
     }
 
     .content::before {
-        height: 18.75rem;
+        height: 9.375rem;
     }
 
     .content_text {
-        font-size: 1em;
+        font-size: 0.75em;
         line-height: 150%;
     }
 
     .content_title {
-        font-size: 1.875em;
-        margin-bottom: 1.875rem;
+        font-size: 1em;
+        margin-bottom: 1.25rem;
     }
-}
+}  
 
-@media (max-width:600px){
+@media (min-width:600px){
     ._container {
         max-width: 37.5rem;
         padding: 1rem;
@@ -165,27 +157,27 @@ body {
     }
 }  
 
-@media (max-width:320px){
+@media (min-width:1024px){
     ._container {
-        max-width: 20rem;
-        padding: 0.625rem;
+        max-width: 62.5rem;
+        padding: 1.25rem;
     }
 
     .parallax_title {
-        font-size: 1.55em;
+        font-size: 3.45em;
     }
 
     .content::before {
-        height: 9.375rem;
+        height: 18.75rem;
     }
 
     .content_text {
-        font-size: 0.75em;
+        font-size: 1em;
         line-height: 150%;
     }
 
     .content_title {
-        font-size: 1em;
-        margin-bottom: 1.25rem;
+        font-size: 1.875em;
+        margin-bottom: 1.875rem;
     }
-}  
+}
