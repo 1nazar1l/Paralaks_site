@@ -76,16 +76,19 @@ body {
 
 .images_clouds {
     top: 0;
+    background-image: url("./imgs/clouds.jpg");
 }
 
 .images_mountains {
     z-index: 2;
     top: 15%;
+    background-image: url("./imgs/mountains.png");
 }
 
 .images_human {
     z-index: 3;
     top: 45%;
+    background-image: url("./imgs/human.png");
 }
 
 .content {
