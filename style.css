@@ -184,3 +184,9 @@ body {
         margin-bottom: 1.875rem;
     }
 }
+
+@media screen and (device-aspect-ratio: 1920/1080) {
+    .images_human {
+        background-position: 20% top;
+    }
+}
