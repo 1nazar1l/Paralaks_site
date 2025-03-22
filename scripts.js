@@ -27,14 +27,13 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         setParalaxAnimation()
     
-        parallaxSection.addEventListener("mousemove", (event) => {
-            rect = parallaxSection.getBoundingClientRect()
-            parallaxWidth = rect.width
-            parallaxHeight = rect.height
-            x = event.pageX
-            y = event.pageY
-            coordX = x - parallaxWidth / 2
-            coordY = y - parallaxHeight / 2
+        parallaxSection.addEventListener("mousemove", function(event) {
+            const parallaxWidth = parallaxSection.offsetWidth;
+            const parallaxHeight = parallaxSection.offsetHeight;
+            let x = event.pageX
+            let y = event.pageY
+            let coordX = x - parallaxWidth / 2
+            let coordY = y - parallaxHeight / 2
             coordXpercent = coordX / parallaxWidth * 100
             coordYpercent = coordY / parallaxHeight * 100
         })

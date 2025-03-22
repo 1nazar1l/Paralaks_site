@@ -58,7 +58,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    top: -2%;
+    top: 0;
     left: 0;
 }
 
@@ -66,9 +66,9 @@ body {
 .images_mountains,
 .images_human {
     position: absolute;
-    width: 110%;
+    width: 100%;
     height: 100%;
-    left: -5%;
+    left: 0;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -185,7 +185,7 @@ body {
     }
 }
 
-@media screen and (device-aspect-ratio: 1920/1080) {
+@media screen and (max-aspect-ratio: 3/2) {
     .images_human {
         background-position: 20% top;
     }
