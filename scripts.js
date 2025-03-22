@@ -15,7 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let coordYpercent = 0
     
         function setParalaxAnimation() {
+            console.log("coordX: ", coordXpercent)
+            console.log("posX: ", positionX)
             let distX = coordXpercent - positionX
+            console.log("distX: ", distX)
             let distY = coordYpercent - positionY
             positionX = positionX + distX * animationSpeed
             positionY = positionY + distY * animationSpeed
@@ -38,17 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
             coordYpercent = coordY / parallaxHeight * 100
         })
 
-        let thresholdSets =  Array()
-        for (let i = 0; i < 1; i+=0.005) {
+        let thresholdSets =  []
+        for (let i = 0; i <= 1; i+=0.005) {
             thresholdSets.push(i)
         }
 
-        let mountainsBlock = mountains.parentElement
-        let peopleBlock = mountains.parentElement
         function setParallaxStyle(scrollTopPercent) {
-            content.style.cssText = `transform: translate(0%, -${scrollTopPercent / 9})`
-            mountainsBlock.style.cssText = `transform: translate(0%, -${scrollTopPercent / 6})`
-            peopleBlock.style.cssText = `transform: translate(0%, -${scrollTopPercent / 3})`
+            content.style.cssText = `transform: translate(0%, -${scrollTopPercent / 9}%)`
+            mountains.parentElement.style.cssText = `transform: translate(0%, -${scrollTopPercent / 6}%)`
+            people.parentElement.style.cssText = `transform: translate(0%, -${scrollTopPercent / 3}%)`
         }
 
         const callback = (entries, observer) => {
