@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         setParalaxAnimation()
 
-        const parallaxHeight = parallaxSection.offsetHeight;
         parallaxSection.addEventListener("mousemove", function(event) {
             const parallaxWidth = parallaxSection.offsetWidth;
+            const parallaxHeight = parallaxSection.offsetHeight;
             let x = event.pageX
             let y = event.pageY
             let coordX = x - parallaxWidth / 2
@@ -40,18 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let thresholdSets =  Array()
         for (let i = 0; i < 1; i+=0.005) {
-            thresholdSets.push(String(i))
+            thresholdSets.push(i)
         }
 
         let mountainsBlock = mountains.parentElement
         let peopleBlock = mountains.parentElement
         function setParallaxStyle(scrollTopPercent) {
-            content.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 9})`
-            mountainsBlock.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 6})`
-            peopleBlock.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 3})`
+            content.style.cssText = `transform: translate(0%, -${scrollTopPercent / 9})`
+            mountainsBlock.style.cssText = `transform: translate(0%, -${scrollTopPercent / 6})`
+            peopleBlock.style.cssText = `transform: translate(0%, -${scrollTopPercent / 3})`
         }
 
         const callback = (entries, observer) => {
+            const parallaxHeight = parallaxSection.offsetHeight;
             let scrollTopPercent = (window.pageYOffset / parallaxHeight) * 100
             setParallaxStyle(scrollTopPercent)
         }
