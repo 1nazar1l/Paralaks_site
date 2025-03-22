@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         let clouds = document.querySelector('.images_clouds')
         let mountains = document.querySelector('.images_mountains')
         let people = document.querySelector('.images_human')
-    
+        let content = document.querySelector('.content')
         let forClouds = 40
         let forMountains = 20
         let forHuman = 10
@@ -26,10 +26,10 @@ document.addEventListener("DOMContentLoaded", () => {
             requestAnimationFrame(setParalaxAnimation)
         }
         setParalaxAnimation()
-    
+
+        const parallaxHeight = parallaxSection.offsetHeight;
         parallaxSection.addEventListener("mousemove", function(event) {
             const parallaxWidth = parallaxSection.offsetWidth;
-            const parallaxHeight = parallaxSection.offsetHeight;
             let x = event.pageX
             let y = event.pageY
             let coordX = x - parallaxWidth / 2
@@ -37,5 +37,27 @@ document.addEventListener("DOMContentLoaded", () => {
             coordXpercent = coordX / parallaxWidth * 100
             coordYpercent = coordY / parallaxHeight * 100
         })
+
+        let thresholdSets =  Array()
+        for (let i = 0; i < 1; i+=0.005) {
+            thresholdSets.push(String(i))
+        }
+
+        let mountainsBlock = mountains.parentElement
+        let peopleBlock = mountains.parentElement
+        function setParallaxStyle(scrollTopPercent) {
+            content.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 9})`
+            mountainsBlock.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 6})`
+            peopleBlock.style.cssText = `transform: translate(0%, ${-scrollTopPercent / 3})`
+        }
+
+        const callback = (entries, observer) => {
+            let scrollTopPercent = (window.pageYOffset / parallaxHeight) * 100
+            setParallaxStyle(scrollTopPercent)
+        }
+        const observer = new IntersectionObserver(callback, {
+            threshold: thresholdSets 
+        });
+        observer.observe(content)
     }
 })
